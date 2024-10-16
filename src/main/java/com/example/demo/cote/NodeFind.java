@@ -1,4 +1,5 @@
-package com.example.cote;
+package com.example.demo.cote;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,12 +8,16 @@ public class NodeFind {
     static class TreeNode {
         int x, y;
         TreeNode left, right;
+        int seq;
 
         TreeNode(int x, int y) {
             this.x = x;
             this.y = y;
             this.left = null;
             this.right = null;
+        }
+        public int setSeq(int seq){
+            return this.seq = seq;
         }
     }
 
@@ -30,8 +35,11 @@ public class NodeFind {
 
     public TreeNode buildTree(int[][] coordinates) {
         TreeNode root = null;
+        int seq = 0;
         for (int[] coordinate : coordinates) {
+            // root.setSeq(seq);
             root = insert(root, coordinate[0], coordinate[1]);
+            // seq++;
         }
         return root;
     }
